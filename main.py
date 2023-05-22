@@ -2,6 +2,7 @@
 
 from src.views.homepage import HomepageView
 
+
 def main():
     homepage_view = HomepageView()
 
@@ -22,6 +23,7 @@ def main():
             break
         else:
             print("Invalid choice. Please try again.")
+
 
 if __name__ == "__main__":
     main()
