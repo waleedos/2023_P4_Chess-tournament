@@ -1,11 +1,8 @@
-# fichier /src/views/player.py
-
-from .common import top_bottom, get_choice, menu
+import os
+import json
 from tabulate import tabulate
 from colorama import Fore, Style
-import json
-import os
-
+from .common import top_bottom, get_choice, menu
 
 class PlayerView:
     def __init__(self):
@@ -102,9 +99,9 @@ class PlayerView:
         return [first_name, last_name, birth_date, chess_id]
 
     def select(self):
-        """get the player ID"""
+        """get the player Chess ID"""
 
-        return input("Player ID > ")
+        return input("Player Chess ID > ")
 
     def select_response(self, player_data: list):
         """display the selected player's data"""
@@ -122,13 +119,13 @@ class PlayerView:
 
         print("\nPlease enter the player's new values:\n")
 
-        player_id = input("Player ID: ")
+        player_chess_id = input("Player Chess ID: ")
         first_name = input("First name: ")
         last_name = input("Last name: ")
         birth_date = input("Birth date (dd/mm/yyyy): ")
         chess_id = input("Chess ID (e.g., AB12345): ")
 
-        return [player_id, first_name, last_name, birth_date, chess_id]
+        return [player_chess_id, first_name, last_name, birth_date, chess_id]
 
     def edit_response(self, response: bool):
         """display response after editing a player"""
@@ -139,9 +136,20 @@ class PlayerView:
             print("\nFailed to edit player. Please try again.\n")
 
     def delete(self):
-        """get the player ID to delete"""
+        """get the player Chess ID to delete"""
 
-        return input("Player ID to delete > ")
+        return input("Player Chess ID to delete > ")
+
+    def delete_player(self, player_chess_id: str) -> bool:
+        """delete a player"""
+
+        for player in self.players:
+            if player["chess_id"] == player_chess_id:
+                self.players.remove(player)
+                self.save_players()
+                return True
+
+        return False
 
     def delete_response(self, response: bool):
         """display response after deleting a player"""

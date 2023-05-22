@@ -1,5 +1,3 @@
-# fichier main.py
-
 from src.views.homepage import HomepageView
 from src.views.player import PlayerView
 
@@ -18,8 +16,8 @@ def main():
                 if player_choice == "1":  # Lister les joueurs
                     player_view.list_players(player_view.players, "registered", "system")
                 elif player_choice == "2":  # Sélectionner un joueur
-                    player_id = player_view.select()
-                    player_view.select_response(player_view.get_player(player_id))
+                    player_chess_id = player_view.select()
+                    player_view.select_response(player_view.get_player(player_chess_id))
 
                 elif player_choice == "3":  # Créer un joueur
                     player_data = player_view.add_player()
@@ -28,8 +26,8 @@ def main():
                     player_data = player_view.edit_player()
                 
                 elif player_choice == "5":  # Supprimer un joueur
-                    player_id = player_view.delete()
-                    response = player_view.delete_player(player_id)
+                    player_chess_id = player_view.delete()
+                    response = player_view.delete_player(player_chess_id)
                     player_view.delete_response(response)
                 
                 elif player_choice == "6":  # Retourner au menu principal
@@ -53,4 +51,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
