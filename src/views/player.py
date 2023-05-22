@@ -143,6 +143,17 @@ class PlayerView:
 
         return input("Player ID to delete > ")
 
+    def delete_player(self, player_id: str) -> bool:
+        """delete a player"""
+
+        for player in self.players:
+            if player["id"] == player_id:
+                self.players.remove(player)
+                self.save_players()
+                return True
+
+        return False
+
     def delete_response(self, response: bool):
         """display response after deleting a player"""
 
