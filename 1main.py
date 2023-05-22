@@ -15,23 +15,21 @@ def main():
                 player_choice = player_view.menu("Player menu")
 
                 if player_choice == "1":  # Lister les joueurs
-                    player_view.list_players(player_view.players, "registered", "system")
+                    # Traiter l'affichage de la liste des joueurs
+                    pass
                 elif player_choice == "2":  # Sélectionner un joueur
-                    player_id = player_view.select()
                     # Traiter la sélection d'un joueur
-                    player_view.select_response(player_view.get_player(player_id))
+                    pass
                 elif player_choice == "3":  # Créer un joueur
                     player_data = player_view.add_player()
                     # Traiter l'ajout du joueur avec les données player_data
-                    player_view.add_response(True)
+                    print("Player added:", player_data)
                 elif player_choice == "4":  # Modifier un joueur
-                    player_data = player_view.edit_player()
-                    # Traiter la modification du joueur avec les données player_data
-                    player_view.edit_response(True)
+                    # Traiter la modification d'un joueur
+                    pass
                 elif player_choice == "5":  # Supprimer un joueur
-                    player_id = player_view.delete()
-                    # Traiter la suppression du joueur avec l'ID player_id
-                    player_view.delete_response(True)
+                    # Traiter la suppression d'un joueur
+                    pass
                 elif player_choice == "6":  # Retourner au menu principal
                     break
                 else:
