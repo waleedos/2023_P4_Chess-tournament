@@ -30,7 +30,7 @@ end
 # Unset irrelevant variables.
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV "/home/devpyt/Bureau/Test/env"
+set -gx VIRTUAL_ENV "/home/devpyt/Bureau/Walid-P4-2023-Chess/env"
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/bin" $PATH

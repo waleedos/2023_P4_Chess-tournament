@@ -38,7 +38,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="/home/devpyt/Bureau/Test/env"
+VIRTUAL_ENV="/home/devpyt/Bureau/Walid-P4-2023-Chess/env"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
