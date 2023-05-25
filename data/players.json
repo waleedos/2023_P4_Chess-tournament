@@ -10,15 +10,6 @@
             "tournament_points": 0
         },
         {
-            "last_name": "SARBEJI",
-            "first_name": "MOURAD",
-            "birthdate": "15/12/1960",
-            "gender": "M",
-            "rank": 2350,
-            "ChessId": "AB14421",
-            "tournament_points": 0
-        },
-        {
             "last_name": "GHORBAL",
             "first_name": "Michel",
             "birthdate": "07/07/2001",
@@ -52,6 +43,15 @@
             "gender": "M",
             "rank": 1432,
             "ChessId": "AB11152",
+            "tournament_points": 0
+        },
+        {
+            "last_name": "ELKHABOU",
+            "first_name": "Rayan",
+            "birthdate": "17/05/2013",
+            "gender": "M",
+            "rank": 1982,
+            "ChessId": "AB44444",
             "tournament_points": 0
         }
     ]
