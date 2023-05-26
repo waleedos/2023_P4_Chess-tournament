@@ -19,39 +19,21 @@
             "tournament_points": 0
         },
         {
-            "last_name": "HOLLAND",
-            "first_name": "Fran\u00e7ois",
-            "birthdate": "15/08/1957",
-            "gender": "M",
-            "rank": 2019,
-            "ChessId": "AB82194",
-            "tournament_points": 0
-        },
-        {
-            "last_name": "GADDOUR",
-            "first_name": "Abdelhalim",
-            "birthdate": "15/07/1973",
-            "gender": "M",
-            "rank": 1560,
-            "ChessId": "AB00032",
-            "tournament_points": 0
-        },
-        {
-            "last_name": "KHADDEM",
-            "first_name": "Abderraouf",
-            "birthdate": "01/12/1957",
-            "gender": "M",
-            "rank": 1432,
-            "ChessId": "AB11152",
-            "tournament_points": 0
-        },
-        {
             "last_name": "ELKHABOU",
             "first_name": "Rayan",
             "birthdate": "17/05/2013",
             "gender": "M",
             "rank": 1982,
             "ChessId": "AB44444",
+            "tournament_points": 0
+        },
+        {
+            "last_name": "Doe",
+            "first_name": "John",
+            "birthdate": "01/01/2000",
+            "gender": "M",
+            "rank": 2000,
+            "ChessId": "AB12345",
             "tournament_points": 0
         }
     ]

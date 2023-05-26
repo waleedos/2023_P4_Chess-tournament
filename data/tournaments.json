@@ -1,0 +1,34 @@
+{
+    "tournaments": [
+        {
+            "name": "ophiuhioguiog",
+            "location": "hiouhiogh",
+            "start_date": "22/06/2023",
+            "end_date": "30/06/2023",
+            "description": "jhigog oygo uyg ouyg",
+            "time_control": 2,
+            "rounds": 4,
+            "players": []
+        },
+        {
+            "name": "Vitalon",
+            "location": "COMPARISON",
+            "start_date": "15/08/2023",
+            "end_date": "20/08/2023",
+            "description": "JENNE VILLIER",
+            "time_control": 3,
+            "rounds": 4,
+            "players": []
+        },
+        {
+            "name": "MIMIDON 2023",
+            "location": "Jeneve",
+            "start_date": "15/09/2023",
+            "end_date": "20/09/2023",
+            "description": "Plutot Cool",
+            "time_control": 2,
+            "rounds": 4,
+            "players": []
+        }
+    ]
+}
