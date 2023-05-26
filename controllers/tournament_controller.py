@@ -1,6 +1,6 @@
 import json
 from models.tournament import Tournament
-from views.tournament_view import display_all_tournaments, get_new_tournament_info
+from views.tournament_view import display_all_tournaments, display_tournament_creation_success, get_new_tournament_info
 
 
 def load_tournaments():
@@ -25,6 +25,7 @@ def add_tournament(tournament):
     tournaments = load_tournaments()
     tournaments.append(tournament)
     save_tournaments(tournaments)
+    display_tournament_creation_success(tournament)  # Afficher la phrase de confirmation
 
 
 def create_new_tournament():
@@ -32,4 +33,3 @@ def create_new_tournament():
     tournament = Tournament(**tournament_data)
     add_tournament(tournament)
     return tournament
-

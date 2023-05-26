@@ -11,22 +11,22 @@
             "players": []
         },
         {
-            "name": "Vitalon",
-            "location": "COMPARISON",
-            "start_date": "15/08/2023",
-            "end_date": "20/08/2023",
-            "description": "JENNE VILLIER",
-            "time_control": 3,
+            "name": "DERNIER TEST",
+            "location": "DERNIER",
+            "start_date": "15/06/2023",
+            "end_date": "25/06/2023",
+            "description": "Oui Test Dernier",
+            "time_control": 1,
             "rounds": 4,
             "players": []
         },
         {
-            "name": "MIMIDON 2023",
-            "location": "Jeneve",
-            "start_date": "15/09/2023",
-            "end_date": "20/09/2023",
-            "description": "Plutot Cool",
-            "time_control": 2,
+            "name": "Dernier Test",
+            "location": "TEST TEST",
+            "start_date": "14/08/2024",
+            "end_date": "30/08/2024",
+            "description": "SFAX",
+            "time_control": 3,
             "rounds": 4,
             "players": []
         }

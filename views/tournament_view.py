@@ -31,32 +31,57 @@ def get_new_tournament_info():
 
 
 def display_all_tournaments(tournaments):
-    if tournaments:
-        headers = [
-            "Nom",
-            "Lieu",
-            "Début du tournoi",
-            "Fin du tournoi",
-            "Description",
-            "Contrôle du temps",
-            "Nombre de tours",
-            "Joueurs participants",
+    if len(tournaments) > 0:
+        tournament_data = [
+            {
+                "Nom": tournament.name,
+                "Lieu": tournament.location,
+                "Début du tournoi": tournament.start_date,
+                "Fin du tournoi": tournament.end_date,
+                "Description": tournament.description,
+                "Contrôle du temps": tournament.time_control,
+                "Nombre de tours": tournament.rounds,
+                "Joueurs participants": ", ".join(tournament.players)
+            } for tournament in tournaments
         ]
-        tournament_data = []
-        for tournament in tournaments:
-            tournament_row = [
-                tournament.name,
-                tournament.location,
-                tournament.start_date,
-                tournament.end_date,
-                tournament.description,
-                tournament.time_control,
-                tournament.rounds,
-                ", ".join(tournament.players),
-            ]
-            tournament_data.append(tournament_row)
-
+        headers = {
+            "Nom": "Nom",
+            "Lieu": "Lieu",
+            "Début du tournoi": "Début du tournoi",
+            "Fin du tournoi": "Fin du tournoi",
+            "Description": "Description",
+            "Contrôle du temps": "Contrôle du temps",
+            "Nombre de tours": "Nombre de tours",
+            "Joueurs participants": "Joueurs participants"
+        }
         print(Fore.GREEN + tabulate(tournament_data, headers=headers, tablefmt="fancy_grid"))
-        print(Fore.RED + "\nVoici tous les tournois enregistrés!" + "\n\n" + Style.RESET_ALL)
+        print(Fore.RED + "Liste des tournois existants" + "\n\n" + Style.RESET_ALL)
     else:
         print("Aucun tournoi enregistré.")
+
+
+def display_tournament_creation_success(tournament):
+    tournament_data = [
+        {
+            "Nom": tournament.name,
+            "Lieu": tournament.location,
+            "Début du tournoi": tournament.start_date,
+            "Fin du tournoi": tournament.end_date,
+            "Description": tournament.description,
+            "Contrôle du temps": tournament.time_control,
+            "Nombre de tours": tournament.rounds,
+            "Joueurs participants": ", ".join(tournament.players)
+        }
+    ]
+    headers = {
+        "Nom": "Nom",
+        "Lieu": "Lieu",
+        "Début du tournoi": "Début du tournoi",
+        "Fin du tournoi": "Fin du tournoi",
+        "Description": "Description",
+        "Contrôle du temps": "Contrôle du temps",
+        "Nombre de tours": "Nombre de tours",
+        "Joueurs participants": "Joueurs participants"
+    }
+    print(Fore.GREEN + tabulate(tournament_data, headers=headers, tablefmt="fancy_grid"))
+    print(Fore.RED + "Ce tournoi a été créé avec succès !" + "\n\n" + Style.RESET_ALL)
