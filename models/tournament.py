@@ -1,13 +1,24 @@
+# Fichier : /models/tournament.py
+from models.player import Player
 class Tournament:
-    def __init__(self, name, location, start_date, end_date, description="", time_control=1, rounds=4, players=None):
+    def __init__(self, name, location, start_date, end_date, description, time_control, number_of_rounds, players=None):
         self.name = name
         self.location = location
         self.start_date = start_date
         self.end_date = end_date
         self.description = description
         self.time_control = time_control
-        self.rounds = rounds
-        self.players = players if players is not None else []
+        self.number_of_rounds = number_of_rounds
+        self.players = players if players else []
+
+
+    def add_players(self, players):
+        for player in players:
+            if isinstance(player, Player):
+                self.players.append(player)
+            else:
+                raise TypeError("Only Player objects can be added to the tournament.")
+
 
     def to_dict(self):
         return {
@@ -17,6 +28,6 @@ class Tournament:
             "end_date": self.end_date,
             "description": self.description,
             "time_control": self.time_control,
-            "rounds": self.rounds,
-            "players": self.players,
+            "number_of_rounds": self.number_of_rounds,
+            "players": [player.ChessId for player in self.players],
         }

@@ -1,5 +1,3 @@
-# player_controller.Player
- 
 import json
 from models.player import Player
 from views.player_view import display_players
@@ -81,3 +79,10 @@ def delete_player(chess_id):
             return
     print("Le joueur à supprimer n'a pas été trouvé.")
 
+
+def select_players_for_tournament():
+    players = load_players()
+    display_players(players)
+    selected_players_ids = input("Entrez les ChessId des joueurs sélectionnés (séparés par des virgules) : ").split(",")
+    selected_players = [get_player_by_id(player_id.strip()) for player_id in selected_players_ids]
+    return selected_players

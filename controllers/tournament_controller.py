@@ -1,6 +1,8 @@
 import json
 from models.tournament import Tournament
 from views.tournament_view import display_all_tournaments, display_tournament_creation_success, get_new_tournament_info
+from controllers.player_controller import load_players
+from models.player import Player  # Ajout de l'import de la classe Player
 
 
 def load_tournaments():
@@ -30,6 +32,37 @@ def add_tournament(tournament):
 
 def create_new_tournament():
     tournament_data = get_new_tournament_info()
+    # Change 'rounds' to 'number_of_rounds'
+    if 'rounds' in tournament_data:
+        tournament_data['number_of_rounds'] = tournament_data.pop('rounds')
     tournament = Tournament(**tournament_data)
     add_tournament(tournament)
     return tournament
+
+
+def add_players_to_tournament():
+    tournaments = load_tournaments()
+    display_all_tournaments(tournaments)
+    if tournaments:
+        tournament_index = int(input("\nSélectionnez l'index du tournoi auquel vous souhaitez ajouter des joueurs : ")) - 1
+        if 0 <= tournament_index < len(tournaments):
+            tournament = tournaments[tournament_index]
+            players = load_players()
+            tournament.add_players(players)
+            save_tournaments(tournaments)
+            print("Les joueurs ont été ajoutés au tournoi avec succès.")
+        else:
+            print("Index de tournoi invalide.")
+    else:
+        print("Aucun tournoi enregistré.")
+
+
+def select_tournament():
+    tournaments = load_tournaments()
+    display_all_tournaments(tournaments)
+    tournament_index = int(input("Sélectionnez l'index du tournoi auquel vous souhaitez ajouter des joueurs : "))
+    if tournament_index >= 0 and tournament_index < len(tournaments):
+        return tournaments[tournament_index]
+    else:
+        print("Index de tournoi invalide.")
+        return None

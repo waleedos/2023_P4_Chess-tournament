@@ -23,9 +23,9 @@ def get_new_tournament_info():
     change_rounds = input("Voulez-vous changer le nombre de tours (4 par défaut) ? (O/N) : ")
 
     if change_rounds.lower() == "o":
-        rounds = int(input("Entrez le nombre de tours : "))
+        number_of_rounds = int(input("Entrez le nombre de tours : "))
     else:
-        rounds = 4
+        number_of_rounds = 4
 
     tournament_data = {
         "name": name,
@@ -34,7 +34,7 @@ def get_new_tournament_info():
         "start_date": start_date,
         "end_date": end_date,
         "time_control": time_control,
-        "rounds": rounds,
+        "number_of_rounds": number_of_rounds,
         "players": [],  # Initialiser la liste des joueurs à vide
     }
 
@@ -51,7 +51,7 @@ def display_all_tournaments(tournaments):
                 "Fin du tournoi": tournament.end_date,
                 "Description": tournament.description,
                 "Contrôle du temps": get_time_control_description(tournament.time_control),
-                "Nombre de tours": tournament.rounds,
+                "Nombre de tours": tournament.number_of_rounds,
                 "Joueurs participants": ", ".join(tournament.players)
             } for tournament in tournaments
         ]
@@ -80,7 +80,7 @@ def display_tournament_creation_success(tournament):
             "Fin du tournoi": tournament.end_date,
             "Description": tournament.description,
             "Contrôle du temps": tournament.time_control,
-            "Nombre de tours": tournament.rounds,
+            "Nombre de tours": tournament.number_of_rounds,
             "Joueurs participants": ", ".join(tournament.players)
         }
     ]
