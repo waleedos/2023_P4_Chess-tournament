@@ -1,4 +1,6 @@
-#!/home/devpyt/Bureau/Test/env/bin/python
+#!/bin/sh
+'''exec' "/home/devpyt/Bureau/Walid-P4-2023-Chess (copie 1)/env/bin/python" "$0" "$@"
+' '''
 # -*- coding: utf-8 -*-
 import re
 import sys
