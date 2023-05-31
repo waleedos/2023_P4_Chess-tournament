@@ -9,6 +9,9 @@ from views.view import View
 # Importation de la fonction itemgetter du module operator qui facilite le tri des éléments dans une collection.
 from operator import itemgetter
 
+from colorama import Fore, Style, init
+init()
+
 
 class Report(View):
     # Déclaration d'une nouvelle classe appelée Report, qui hérite de la classe View.
@@ -29,7 +32,9 @@ class Report(View):
         # Affectation de la liste de joueurs passée en argument à la variable locale players. Cependant, cette ligne
         # semble redondante, car players est déjà le nom de l'argument de la méthode.
 
-        build_selection = self.build_selection(iterable=players, display_msg="Voir les détails d'un joueur :\n",
+        build_selection = self.build_selection(iterable=players,
+                                               display_msg=f"{Fore.BLUE}Voir les détails d'un joueur\
+                                               :\n{Style.RESET_ALL}",
                                                assertions=["r"])
         # Ceci appelle la méthode build_selection avec trois arguments : la liste de joueurs, un message à afficher et
         # une liste d'assertions. On suppose que build_selection retourne un dictionnaire contenant une version mise en
@@ -43,7 +48,7 @@ class Report(View):
             user_input = self.get_user_entry(
                 msg_display=build_selection['msg'] + "r - Retour\n"
                                                      ">>> ",
-                msg_error="Veuillez faire un choix valide",
+                msg_error=f"{Fore.RED}Veuillez faire un choix valide\n{Style.RESET_ALL}",
                 value_type="selection",
                 assertions=build_selection['assertions']
             )
@@ -68,7 +73,7 @@ class Report(View):
                 # variable selected_player.
 
                 while True:
-                    print(f"Détails du joueur {selected_player['name']}:")
+                    print(f"{Fore.BLUE}\nDétails du joueur {selected_player['name']}:\n{Style.RESET_ALL}")
                     print(f"Classement: {selected_player['rating']}\n"
                           f"Score total: {selected_player['total_score']}\n"
                           f"Nom: {selected_player['name']}\n"
@@ -81,10 +86,10 @@ class Report(View):
                     # la date de naissance et le sexe du joueur.
 
                     user_input = self.get_user_entry(
-                        msg_display="Que faire ?\n"
+                        msg_display=f"{Fore.GREEN}Que faire ?\n{Style.RESET_ALL}"
                                     "r - Retour\n"
                                     ">>> ",
-                        msg_error="Veuillez faire un choix valide",
+                        msg_error=f"{Fore.RED}Veuillez faire un choix valide\n{Style.RESET_ALL}",
                         value_type="selection",
                         assertions=["r"]
                     )
@@ -101,7 +106,7 @@ class Report(View):
 
         build_selection = self.build_selection(
             iterable=self.tournaments,
-            display_msg="Voir les détails d'un tournoi :\n",
+            display_msg=f"{Fore.BLUE}Voir les détails d'un tournoi :\n{Style.RESET_ALL}",
             assertions=['r']
         )
         # Appel de la méthode build_selection avec la liste de tournois, un message à afficher et une liste
@@ -121,7 +126,7 @@ class Report(View):
             user_input = self.get_user_entry(
                 msg_display=build_selection['msg'] + "r - Retour\n"
                                                      ">>> ",
-                msg_error="Veuillez faire un choix valide.",
+                msg_error=f"{Fore.RED}Veuillez faire un choix valide\n{Style.RESET_ALL}",
                 value_type="selection",
                 assertions=build_selection['assertions']
             )
@@ -137,7 +142,7 @@ class Report(View):
                 # indice pour sélectionner un tournoi dans la liste des tournois.
 
                 while True:
-                    print(f"Détails du tournoi {selected_tournament['name']}\n"
+                    print(f"{Fore.BLUE}\nDétails du tournoi {selected_tournament['name']}\n{Style.RESET_ALL}"
                           f"Nom: {selected_tournament['name']}\n"
                           f"Lieu: {selected_tournament['location']}\n"
                           f"Date: {selected_tournament['date']}\n"
@@ -147,7 +152,7 @@ class Report(View):
                           )
 
                     user_input = self.get_user_entry(
-                        msg_display="Que faire ?\n"
+                        msg_display=f"{Fore.GREEN}Que faire ?\n{Style.RESET_ALL}"
                                     "0 - Voir les participants\n"
                                     "1 - Voir les tours\n"
                                     "r - Retour\n>>> ",
@@ -165,15 +170,16 @@ class Report(View):
                     elif user_input == "0":
                         while True:
                             user_input = self.get_user_entry(
-                                msg_display="Type de classement:\n"
+                                msg_display=f"{Fore.GREEN}Type de classement:\n{Style.RESET_ALL}"
                                             "0 - Par rang\n"
                                             "1 - Par ordre alphabétique\n"
                                             "r - Retour\n"
                                             ">>> ",
-                                msg_error="Veuillez entrer une sélection valide",
+                                msg_error=f"{Fore.RED}Veuillez entrer une sélection valide\n{Style.RESET_ALL}",
                                 value_type="selection",
                                 assertions=["0", "1", "r"]
                             )
+
                             if user_input == "r":
                                 break
                             elif user_input == "0":
@@ -210,7 +216,7 @@ class Report(View):
             user_input = self.get_user_entry(
                 msg_display=build_selection['msg'] + "r - Retour\n"
                                                      ">>> ",
-                msg_error="Veuillez faire un choix valide",
+                msg_error=f"{Fore.RED}Veuillez faire un choix valide\n{Style.RESET_ALL}",
                 value_type="selection",
                 assertions=build_selection['assertions']
             )
@@ -227,7 +233,7 @@ class Report(View):
                 # pour indexer la liste des tours pour sélectionner un tour.
 
                 while True:
-                    print(f"Détails du round {selected_round['name']}\n"
+                    print(f"{Fore.BLUE}\nDétails du round {selected_round['name']}:\n{Style.RESET_ALL}"
                           f"Nom: {selected_round['name']}\n"
                           f"Nombre de matchs: {len(selected_round['matchs'])}\n"
                           f"Date de début: {selected_round['start_date']}\n"
@@ -236,11 +242,11 @@ class Report(View):
                     # Une autre boucle infinie est lancée, et des détails sur le tour sélectionné sont affichés.
 
                     user_input = self.get_user_entry(
-                        msg_display="Que faire ?\n"
+                        msg_display=f"{Fore.GREEN}Que faire ?\n{Style.RESET_ALL}"
                                     "0 - Voir les matchs\n"
                                     "r - Retour\n"
                                     ">>> ",
-                        msg_error="Veuillez faire un choix valide",
+                        msg_error=f"{Fore.RED}Veuillez faire un choix valide\n{Style.RESET_ALL}",
                         value_type="selection",
                         assertions=["0", "r"]
                     )
@@ -264,7 +270,7 @@ class Report(View):
                         user_input = self.get_user_entry(
                             msg_display=build_selection['msg'] + "r - Retour\n"
                                                                  ">>> ",
-                            msg_error="Veuillez faire un choix valide.",
+                            msg_error=f"{Fore.RED}Veuillez faire un choix valide\n{Style.RESET_ALL}",
                             value_type="selection",
                             assertions=build_selection['assertions']
                         )
@@ -279,7 +285,7 @@ class Report(View):
                             # utilisé pour indexer la liste des matchs pour sélectionner un match.
 
                             while True:
-                                print(f"Détails du {selected_match['name']}\n"
+                                print(f"{Fore.BLUE}\nDétails du {selected_match['name']}:\n{Style.RESET_ALL}"
                                       f"Joueur 1 : " +
                                       f"{selected_match['player_1']['name']} ({selected_match['score_player_1']} pts)\n"
                                       f"Joueur 2 : " +
@@ -290,10 +296,10 @@ class Report(View):
                                 # affichés.
 
                                 user_input = self.get_user_entry(
-                                    msg_display="Que faire ?\n"
+                                    msg_display=f"{Fore.GREEN}Que faire ?\n{Style.RESET_ALL}"
                                                 "r - Retour\n"
                                                 ">>> ",
-                                    msg_error="Veuillez faire un choix valide",
+                                    msg_error=f"{Fore.RED}Veuillez faire un choix valide\n{Style.RESET_ALL}",
                                     value_type="selection",
                                     assertions=["r"]
                                 )

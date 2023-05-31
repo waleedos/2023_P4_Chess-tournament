@@ -1,6 +1,6 @@
 # Projet 4
 
-- Se rendre sur le repo https://github.com/waleedos/2023_P4_Chess-tournament
+- Se rendre sur le repo https://github.com/waleedos/2023_P4_Chess
 - Cloner ou télécharger le repo
 - Créer un environnement virtuel :
     ```

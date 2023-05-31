@@ -1,10 +1,10 @@
 __pycache__/
 
 # tinydb data
-data/
+# data/
 
 # coverage reports
-flake-report/
+# flake-report/
 
 # Environments
 .env
